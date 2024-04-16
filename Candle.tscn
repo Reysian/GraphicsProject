@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjv0460aj575a"]
+
+[ext_resource type="ArrayMesh" uid="uid://bx0jogt4ui14p" path="res://models/candle.obj" id="1_rup7x"]
+[ext_resource type="Script" path="res://Candlelight.gd" id="2_05knu"]
+
+[node name="Candle" type="MeshInstance3D"]
+mesh = ExtResource("1_rup7x")
+
+[node name="Candlelight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+light_color = Color(1, 0.654902, 0.368627, 1)
+light_energy = 0.3
+light_size = 0.301
+shadow_enabled = true
+omni_attenuation = 3.03143
+script = ExtResource("2_05knu")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3jevpdx4tu8o"]
+
+[ext_resource type="PackedScene" uid="uid://cvjkrisrnk5fk" path="res://Dresser.tscn" id="1_ili8k"]
+[ext_resource type="PackedScene" uid="uid://cjv0460aj575a" path="res://Candle.tscn" id="2_24w1r"]
+
+[node name="Testscene" type="Node3D"]
+
+[node name="Dresser" parent="." instance=ExtResource("1_ili8k")]
+
+[node name="Candle" parent="." instance=ExtResource("2_24w1r")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.59716, 1.09561, 0.203046)

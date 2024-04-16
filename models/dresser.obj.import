@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://byxf1atsxfmwl"
+path="res://.godot/imported/dresser.obj-08847914d7bf9313c4ff4e3b29adf2af.mesh"
+
+[deps]
+
+files=["res://.godot/imported/dresser.obj-08847914d7bf9313c4ff4e3b29adf2af.mesh"]
+
+source_file="res://models/dresser.obj"
+dest_files=["res://.godot/imported/dresser.obj-08847914d7bf9313c4ff4e3b29adf2af.mesh", "res://.godot/imported/dresser.obj-08847914d7bf9313c4ff4e3b29adf2af.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

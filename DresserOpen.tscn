@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://8mk0hsowqgo7"]
+
+[ext_resource type="ArrayMesh" uid="uid://bogsjj51perek" path="res://models/dresseropentest2.obj" id="1_6c6e3"]
+[ext_resource type="Material" uid="uid://1egnw28f04mh" path="res://DresserWood.tres" id="2_u6yta"]
+[ext_resource type="Script" path="res://Dresser.gd" id="3_000u5"]
+[ext_resource type="Material" uid="uid://bes8lnr7dmhop" path="res://DresserGold.tres" id="3_rgtx7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2c0ej"]
+size = Vector3(1.69032, 1.58789, 0.928772)
+
+[node name="DresserOpen" type="MeshInstance3D"]
+mesh = ExtResource("1_6c6e3")
+surface_material_override/0 = ExtResource("2_u6yta")
+surface_material_override/1 = ExtResource("3_rgtx7")
+script = ExtResource("3_000u5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00498199, 0.293945, -0.035614)
+shape = SubResource("BoxShape3D_2c0ej")
