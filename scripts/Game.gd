@@ -6,6 +6,7 @@ extends Node3D
 @onready var top_down_camera = $TopDownCamera
 
 var maze_size = 15
+var astar_grid: AStar3D
 var timer_countdown = 5.0
 var is_counting_down = false
 

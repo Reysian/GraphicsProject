@@ -6,6 +6,8 @@ var sets = {}
 var walls = []
 var removed_walls = []
 
+signal setup_finished
+
 func setup_maze(size):
 	maze_size = size
 	astar_grid = AStar3D.new()
@@ -15,6 +17,7 @@ func setup_maze(size):
 	initialize_maze_walls()
 	generate_maze()
 	visualize_maze()
+	emit_signal("setup_finished")
 
 func place_outer_walls():
 	var wall_scene = preload("res://scenes/wall_instance.tscn")
@@ -69,6 +72,8 @@ func initialize_astar_grid():
 			var myMesh = MeshInstance3D.new()
 			myMesh.mesh = BoxMesh.new()
 			myMesh.scale = Vector3(.1, .1, .1)
+			if i == maze_size - 1 and j == maze_size - 1:
+				myMesh.scale = Vector3(.2, .2, .2)
 			myMesh.transform.origin = astar_grid.get_point_position(n)
 			add_child(myMesh)
 			# End section

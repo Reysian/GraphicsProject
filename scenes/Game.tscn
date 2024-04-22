@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwb1gjw8clifr"]
+[gd_scene load_steps=20 format=3 uid="uid://cwb1gjw8clifr"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_fnb51"]
 [ext_resource type="PackedScene" uid="uid://bkbldtkuw7ksf" path="res://scenes/menu.tscn" id="2_fjrqg"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c81km3602m34j" path="res://sounds/lose.wav" id="9_yigfp"]
 [ext_resource type="LabelSettings" uid="uid://dr2ajfqocg1gs" path="res://menu/label_settings.tres" id="10_w6dkg"]
 [ext_resource type="PackedScene" uid="uid://bskp6y5ju64lf" path="res://scenes/TopDownCamera.tscn" id="11_pd760"]
+[ext_resource type="Script" path="res://scenes/Enemy.gd" id="13_exd7r"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dob6j"]
 radius = 0.1
@@ -28,6 +29,10 @@ background_mode = 2
 sky = SubResource("Sky_dj5ws")
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v3msj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vd2ol"]
 
 [node name="GameNode" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0436668, 0, -0.043668)
@@ -134,3 +139,13 @@ label_settings = ExtResource("10_w6dkg")
 environment = SubResource("Environment_qdr1w")
 
 [node name="TopDownCamera" parent="." instance=ExtResource("11_pd760")]
+
+[node name="Enemy" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("13_exd7r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
+mesh = SubResource("CapsuleMesh_v3msj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+shape = SubResource("CapsuleShape3D_vd2ol")
