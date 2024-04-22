@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bskp6y5ju64lf"]
+
+[node name="TopDownCamera" type="Camera3D"]
+fov = 39.1
+size = 23.018
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

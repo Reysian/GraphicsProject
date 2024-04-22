@@ -1,9 +1,0 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dr2ajfqocg1gs"]
-
-[ext_resource type="FontFile" uid="uid://chb4v3o0l8moi" path="res://BOOKOS.TTF" id="1_k3jt2"]
-
-[resource]
-font = ExtResource("1_k3jt2")
-font_size = 30
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 1)

@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvjkrisrnk5fk"]
+
+[ext_resource type="ArrayMesh" uid="uid://byxf1atsxfmwl" path="res://models/dresser.obj" id="1_6e4wd"]
+[ext_resource type="Material" uid="uid://1egnw28f04mh" path="res://materials/DresserWood.tres" id="2_wckyf"]
+[ext_resource type="Material" uid="uid://bes8lnr7dmhop" path="res://materials/DresserGold.tres" id="3_jvg8t"]
+[ext_resource type="Script" path="res://scripts/Dresser.gd" id="4_yhj3i"]
+[ext_resource type="AudioStream" uid="uid://cdiygo2gqlhhj" path="res://sounds/fire.mp3" id="5_r506c"]
+[ext_resource type="AudioStream" uid="uid://cy0bcdbruup6r" path="res://sounds/win.wav" id="6_6qjv8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2c0ej"]
+size = Vector3(1.69032, 1.58789, 0.928772)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w5pn6"]
+radius = 1.2892
+
+[node name="Dresser" type="MeshInstance3D"]
+mesh = ExtResource("1_6e4wd")
+surface_material_override/0 = ExtResource("2_wckyf")
+surface_material_override/1 = ExtResource("3_jvg8t")
+script = ExtResource("4_yhj3i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00498199, 0.293945, -0.035614)
+shape = SubResource("BoxShape3D_2c0ej")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.745451, 0.498626)
+shape = SubResource("SphereShape3D_w5pn6")
+
+[node name="FirePlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_r506c")
+
+[node name="WinPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_6qjv8")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
