@@ -13,6 +13,7 @@
 [ext_resource type="LabelSettings" uid="uid://dr2ajfqocg1gs" path="res://menu/label_settings.tres" id="10_w6dkg"]
 [ext_resource type="PackedScene" uid="uid://bskp6y5ju64lf" path="res://scenes/TopDownCamera.tscn" id="11_pd760"]
 [ext_resource type="Script" path="res://scenes/Enemy.gd" id="13_exd7r"]
+[ext_resource type="ArrayMesh" uid="uid://fayarlm345jt" path="res://models/girl OBJ.obj" id="14_rycvi"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dob6j"]
 radius = 0.1
@@ -29,8 +30,6 @@ background_mode = 2
 sky = SubResource("Sky_dj5ws")
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_v3msj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vd2ol"]
 
@@ -56,7 +55,7 @@ visible = false
 [node name="Painting" parent="MazeNode" instance=ExtResource("5_vcdji")]
 visible = false
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
 script = ExtResource("6_xyeme")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
@@ -145,7 +144,8 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("13_exd7r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
-mesh = SubResource("CapsuleMesh_v3msj")
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.944045, 0)
+mesh = ExtResource("14_rycvi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
 shape = SubResource("CapsuleShape3D_vd2ol")

@@ -65,19 +65,8 @@ func initialize_astar_grid():
 		for j in range(maze_size):
 			var n = i * maze_size + j  # Calculate the 1D index
 			# add point to astar grid
-			var point = Vector3((j + 0.5), .1, -(i + 0.5))
+			var point = Vector3((j + 0.5), 0, -(i + 0.5))
 			astar_grid.add_point(n, point, 1)
-			# TODO: Remove section
-			# Show cube mesh at each astar point
-			var myMesh = MeshInstance3D.new()
-			myMesh.mesh = BoxMesh.new()
-			myMesh.scale = Vector3(.1, .1, .1)
-			if i == maze_size - 1 and j == maze_size - 1:
-				myMesh.scale = Vector3(.2, .2, .2)
-			myMesh.transform.origin = astar_grid.get_point_position(n)
-			add_child(myMesh)
-			# End section
-			
 
 func generate_maze():
 	walls.shuffle()
@@ -91,15 +80,6 @@ func generate_maze():
 			removed_walls.append(wall)
 			# connect two astar points if no wall between them
 			astar_grid.connect_points(cell_index_1, cell_index_2, true)
-			# TODO: Remove section
-			# Show sphere mesh at each astar path/edge
-			var myMesh = MeshInstance3D.new()
-			myMesh.mesh = SphereMesh.new()
-			myMesh.scale = Vector3(.2, .2, .2)
-			var pos = (astar_grid.get_point_position(cell_index_2) + astar_grid.get_point_position(cell_index_1)) / 2
-			myMesh.transform.origin = pos
-			add_child(myMesh)
-			# End section
 
 func find_set(cell_index, sets):
 	if sets[cell_index] != cell_index:

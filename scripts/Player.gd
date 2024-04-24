@@ -70,4 +70,3 @@ func on_game_win():
 	gameover = true
 	$CanvasLayer/ColorRect.show()
 	$CanvasLayer/GameWinText.show()
-		
