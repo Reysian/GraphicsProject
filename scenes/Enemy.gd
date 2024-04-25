@@ -32,7 +32,7 @@ func _ready():
 
 func _physics_process(delta):
 	
-	if enemy_ready:
+	if enemy_ready and not player.gameover:
 		_update_target()
 				
 		if abs(target.x - position.x) < 0.1 and abs(target.z - position.z) < 0.1:

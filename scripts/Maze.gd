@@ -33,6 +33,7 @@ func place_outer_walls():
 			wall_instance2.get_node("MeshInstance3D").material_override = material
 			wall_instance2.transform.origin = Vector3(i + 0.5,1, -maze_size)
 			add_child(wall_instance2)
+		#TODO: Add win trigger for end of maze
 
 	for i in range(maze_size):
 		var wall_instance3 = wall_scene.instantiate()

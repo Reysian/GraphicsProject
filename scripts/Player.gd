@@ -57,6 +57,7 @@ func _input(event):
 		get_tree().quit()
 
 func game_over():
+	velocity = Vector3(0, 0, 0)
 	lose_sound.play()
 	$CanvasLayer/ColorRect.show()
 	$CanvasLayer/GameOverText.show()
