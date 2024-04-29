@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cwb1gjw8clifr"]
+[gd_scene load_steps=26 format=3 uid="uid://cwb1gjw8clifr"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_fnb51"]
 [ext_resource type="PackedScene" uid="uid://bkbldtkuw7ksf" path="res://scenes/menu.tscn" id="2_fjrqg"]
@@ -75,6 +75,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mlnnb")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vd2ol"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k0q33"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_srtnt"]
 
 [node name="GameNode" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0436668, 0, -0.043668)
@@ -193,3 +197,15 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
 shape = SubResource("CapsuleShape3D_vd2ol")
+
+[node name="WinTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71112, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinTrigger"]
+shape = SubResource("BoxShape3D_k0q33")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WinTrigger"]
+visible = false
+mesh = SubResource("BoxMesh_srtnt")
+
+[connection signal="body_entered" from="WinTrigger" to="Player" method="_on_win_trigger_body_entered"]

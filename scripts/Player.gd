@@ -68,6 +68,12 @@ func _process(delta):
 		gameover = true
 		
 func on_game_win():
+	velocity = Vector3(0, 0, 0)
 	gameover = true
 	$CanvasLayer/ColorRect.show()
 	$CanvasLayer/GameWinText.show()
+
+func _on_win_trigger_body_entered(body):
+	if body.is_in_group("Player"):
+		print('entered')
+		on_game_win()
